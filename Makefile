@@ -1,16 +1,19 @@
 # Compilador y flags
 CC = gcc
 CFLAGS = -Wall -Wextra -std=c99 -I. -Isrc -Isrc/Paint -Isrc/Pixel
-LDFLAGS = -lncurses
+LDFLAGS = -lncursesw
 
 # Archivos fuente
 SRC = \
     src/main.c \
     src/Cursor/cursor.c \
     src/Cursor/cursor_details.c \
+    src/Cursor/cursor_keyboard.c \
     src/Paint/color.c \
     src/tui/ncurses_utils.c \
     src/tui/statusbar.c \
+    src/tui/help.c \
+    src/tui/goto.c \
     src/utils.c \
     src/Paint/paint.c \
     src/Pixel/pixel.c \
@@ -41,4 +44,7 @@ clean:
 debug: CFLAGS += -g
 debug: $(TARGET)
 
+run: $(TARGET)
+	@echo "Opening in kitty"
+	kitty "./$(TARGET)"
 .PHONY: all clean debug
