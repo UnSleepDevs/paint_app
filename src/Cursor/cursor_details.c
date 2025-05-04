@@ -2,9 +2,9 @@
 #include <stdio.h>
 char *toString_cursorMode(Cursor *cursor) {
     Modes mode = cursor->mode;
-    if(mode == NORMAL) return " NORMAL ";
-    if(mode == EDIT) return " EDITAR ";
-    if(mode == LINE) return " LINEA ";
+    if(mode == NORMAL) return " 👀 NORMAL ";
+    if(mode == EDIT) return " 🎨 EDITAR ";
+    if(mode == LINE) return " 📏 LINEA ";
     return " DESCONOCIDO ";
 }
 

@@ -17,49 +17,17 @@ Cursor *create_cursor(char t) {
   return cursor;
 }
 
+
 void draw_cursor(Cursor *cursor) {
   attron(COLOR_PAIR(cursor->color->color));
   mvaddch(cursor->y, cursor->x, cursor->show);
   attroff(COLOR_PAIR(cursor->color->color));
 }
 
-void handleKeyboard(Cursor *cursor, int k) {
-  k = toLowerCase(k);
-  if (k == 'w') {
-    cursor->y -= 1;
-    return;
-  }
 
-  if (k == 'd') {
-    cursor->x += 1;
-    return;
-  }
-
-  if (k == 'a') {
-    cursor->x -= 1;
-    return;
-  }
-  if (k == 's') {
-    cursor->y += 1;
-    return;
-  }
-  if (k == 'm') {
-    cursor->mode = cursor->mode == EDIT ? NORMAL : EDIT;
-    return;
-  }
-  if (k == 'f') {
-    previus_color(cursor->color);
-    return;
-  }
-
-  if (k == 'j') {
-    next_color(cursor->color);
-    return;
-  }
-}
 
 void update_cursor(Cursor *cursor, int k) {
-  handleKeyboard(cursor, k);
+  __cursor_handle_keyboard(cursor, k);
   int maxX = COLS;
   int maxY = LINES - 2;
   if (cursor->x > maxX)

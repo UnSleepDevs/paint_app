@@ -34,4 +34,5 @@ void free_cursor(Cursor *cursor);
 
 char *toString_cursorMode(Cursor *cursor);
 void toString_cursorPosition(Cursor* cursor, char* restrict);
+void __cursor_handle_keyboard(Cursor* cursor, int k);
 #endif
