@@ -1,7 +1,7 @@
 # Compilador y flags
 CC = gcc
-CFLAGS = -Wall -Wextra -std=c99 -I. -Isrc -Isrc/Paint -Isrc/Pixel
-LDFLAGS = -lncursesw
+CFLAGS = -Wunused-parameter -Wall -Wextra -std=c99 -I. -Isrc -Isrc/Paint -Isrc/Pixel
+LDFLAGS = -lncursesw -lm
 
 # Archivos fuente
 SRC = \
@@ -16,8 +16,9 @@ SRC = \
     src/tui/goto.c \
     src/utils.c \
     src/Paint/paint.c \
+    src/Paint/line_mode.c \
     src/Pixel/pixel.c \
-    src/Pixel/pixel_list.c
+    src/Pixel/pixel_list.c 
 
 # Archivos objeto generados
 OBJ = $(SRC:.c=.o)
@@ -44,7 +45,11 @@ clean:
 debug: CFLAGS += -g
 debug: $(TARGET)
 
-run: $(TARGET)
+runkitty: $(TARGET)
 	@echo "Opening in kitty"
 	kitty "./$(TARGET)"
+
+run: $(TARGET)
+	@echo "Opening"
+	bash -c "./$(TARGET);bash exec"
 .PHONY: all clean debug

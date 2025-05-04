@@ -17,12 +17,14 @@
 * el modo line es para dibujar lineas rectas en el lienzo
 */
 typedef enum { NORMAL, EDIT, LINE } Modes;
-
+typedef struct {
+  int x;
+  int y;
+} Coord;
 typedef struct {
   // @TODO: Implementar la funcionalidad para ocultar el cursor
   char show;
-  int x;
-  int y;
+  Coord* coords;
   Modes mode;
   Color *color;
 } Cursor;

@@ -2,27 +2,27 @@
 #include "cursor.h"
 
 void __cursor_handle_keyboard(Cursor *cursor, int k) {
+  Coord *coords = cursor->coords;
   k = toLowerCase(k);
   if (k == 'w') {
-    cursor->y -= 1;
+    coords->y -= 1;
+    return;
+  }
+  if (k == 'd') {
+    coords->x += 1;
+    return;
+  }
+  if (k == 'a') {
+    coords->x -= 1;
+    return;
+  }
+  if (k == 's') {
+    coords->y += 1;
     return;
   }
 
   if(k == 'g'){
     open_gotocursor(cursor);
-    return;
-  }
-  if (k == 'd') {
-    cursor->x += 1;
-    return;
-  }
-
-  if (k == 'a') {
-    cursor->x -= 1;
-    return;
-  }
-  if (k == 's') {
-    cursor->y += 1;
     return;
   }
   if (k == 'e') {

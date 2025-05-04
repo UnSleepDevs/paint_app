@@ -25,7 +25,7 @@ Color *create_color() {
   Color *color = malloc(sizeof(Color));
   if (color == NULL)
     return NULL;
-  change_color(color, PIXEL_RED);
+  change_color(color, PIXEL_DEFAULT);
   return color;
 }
 

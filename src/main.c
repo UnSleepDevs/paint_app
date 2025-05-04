@@ -2,7 +2,6 @@
 #include "Paint/color.h"
 #include "Paint/paint.h"
 #include "Pixel/pixel_list.h"
-#include "tui/help.h"
 #include "tui/ncurses_utils.h"
 #include "tui/statusbar.h"
 #include "utils.h"
@@ -20,9 +19,6 @@ void freeit(StatusBar *bar, Cursor *cursor, struct PixelContainer *container) {
 int main() {
   setlocale(LC_ALL, "");
   ncurses_start();
-
-  // ==[Splash screen]==|
-  help();
 
   // ==[State variables]==
   char pos[10];

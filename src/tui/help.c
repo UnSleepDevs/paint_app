@@ -26,6 +26,4 @@ void help() {
   wrefresh(win);
   getch();
 
-  wborder(win, ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ');
-  wrefresh(win);
 }

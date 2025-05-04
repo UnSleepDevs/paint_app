@@ -9,5 +9,5 @@ char *toString_cursorMode(Cursor *cursor) {
 }
 
 void toString_cursorPosition(Cursor* cursor, char* dest){
-    sprintf(dest, " %ix%i ", cursor->x + 1, cursor->y + 1);
+    sprintf(dest, " %ix%i ", cursor->coords->x + 1, cursor->coords->y + 1);
 }

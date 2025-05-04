@@ -19,8 +19,8 @@ void open_gotocursor(Cursor *cursor) {
     mvwprintw(win, 2, 2, "Se salío");
     getch();
   } else {
-    cursor->x = tmpX - 1;
-    cursor->y = tmpY - 1;
+    cursor->coords->x = tmpX - 1;
+    cursor->coords->y = tmpY - 1;
   }
 
   delwin(win);

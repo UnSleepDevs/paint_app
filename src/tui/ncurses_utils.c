@@ -1,5 +1,7 @@
 #include "ncurses_utils.h"
 void ncurses_end() {
+  curs_set(1);
+  crmode();
   echo();
   endwin();
 }
