@@ -5,8 +5,8 @@ char *toString_color(Color *color) {
     return " INVALID ";
   }
 
-  char *colors[_PIXEL_COUNT] = {" Rojo ", " Azul ", " Verde ", " Amarillo ",
-                                " Blanco "};
+  char* colors[_PIXEL_COUNT] = {" Rojo ", " Azul ", " Verde ", " Amarillo ",
+                                " Magenta "," Cyan ", " Negro " ," Blanco "};
   return colors[color->color - _MIN_PIXEL_COLOR];
 }
 

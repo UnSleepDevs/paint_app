@@ -9,15 +9,18 @@
 #define PIXEL_BLUE 4
 #define PIXEL_GREEN 5
 #define PIXEL_YELLOW 6
-#define PIXEL_DEFAULT 7
+#define PIXEL_MAGENTA 7
+#define PIXEL_CYAN 8
+#define PIXEL_BLACK 9
+#define PIXEL_DEFAULT 10
 
-#define _MAX_PIXEL_COLOR 7
+#define _MAX_PIXEL_COLOR 10
 #define _MIN_PIXEL_COLOR 3
-#define _PIXEL_COUNT 5
+#define _PIXEL_COUNT 8
 
 typedef struct {
   attr_t color;
-  char str[14];
+  char str[16];
 } Color;
 
 // ==[FUNCTIONS]==

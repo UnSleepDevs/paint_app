@@ -12,6 +12,9 @@ void ncurses_colors() {
   init_pair(PIXEL_BLUE, COLOR_BLACK, COLOR_BLUE);
   init_pair(PIXEL_GREEN, COLOR_BLACK, COLOR_GREEN);
   init_pair(PIXEL_YELLOW, COLOR_BLACK, COLOR_YELLOW);
+  init_pair(PIXEL_MAGENTA, COLOR_BLACK, COLOR_MAGENTA);
+  init_pair(PIXEL_CYAN, COLOR_BLACK, COLOR_CYAN);
+  init_pair(PIXEL_BLACK, COLOR_WHITE, COLOR_BLACK);
   init_pair(PIXEL_DEFAULT, COLOR_BLACK, COLOR_WHITE);
 }
 
@@ -19,6 +22,8 @@ void ncurses_start() {
   initscr();
   clear();
   refresh();
+  cbreak();
+  keypad(stdscr, TRUE);
   curs_set(0);
   noecho();
 
