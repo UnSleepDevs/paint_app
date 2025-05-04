@@ -5,4 +5,5 @@
 #include "../Cursor/cursor.h"
 void grid_draw(struct PixelContainer* grid);
 void grid_update(struct PixelContainer* grid, int k, Cursor* cursor);
+void grid_toString(char* res);
 #endif
