@@ -14,6 +14,8 @@ struct PixelNode *_create_node(Pixel *pixel) {
   if (node == NULL)
     return NULL;
   node->pixel = pixel;
+  node->next = NULL;
+  node->back = NULL;
   return node;
 }
 
@@ -119,9 +121,11 @@ int _find_and_update(struct PixelContainer *container, Pixel *pixel) {
   return 0;
 }
 void append_pixelcontainer(struct PixelContainer *container, Pixel *pixel) {
+    if (_find_and_update(container, pixel)) {
+        free_pixel(pixel);
+        return;
+    }
   struct PixelNode *node = _create_node(pixel);
-  if (_find_and_update(container, pixel))
-    return;
   // Find if we have pixel
   if (node == NULL) {
     free_pixelcontainer(container);

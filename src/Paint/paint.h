@@ -1,6 +1,12 @@
 #ifndef PAINT_H
 #define PAINT_H
-#include <ncurses.h>
+#ifdef _WIN32
+    #include <curses.h>
+#elif defined(__linux__)
+    #include <ncurses.h>
+#else
+    #error "Sistema operativo no soportado"
+#endif
 #include "../Pixel/pixel_list.h"
 #include "../Cursor/cursor.h"
 #include <stdlib.h>

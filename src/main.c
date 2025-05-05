@@ -7,7 +7,14 @@
 #include "utils.h"
 // ==[OS Libs]==
 #include <locale.h>
-#include <ncurses.h>
+#ifdef _WIN32
+    #include <curses.h>
+#elif defined(__linux__)
+    #include <ncurses.h>
+#else
+    #error "Sistema operativo no soportado"
+#endif
+
 
 // ==[Free memory]==
 void freeit(StatusBar *bar, Cursor *cursor, struct PixelContainer *container) {

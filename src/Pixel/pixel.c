@@ -1,5 +1,11 @@
 #include "pixel.h"
-#include <ncurses.h>
+#ifdef _WIN32
+    #include <curses.h>
+#elif defined(__linux__)
+    #include <ncurses.h>
+#else
+    #error "Sistema operativo no soportado"
+#endif
 Pixel* create_pixel(int color, int x, int y){
     Pixel* pixel = malloc(sizeof(Pixel));
     if(pixel == NULL) return NULL;

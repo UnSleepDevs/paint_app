@@ -1,5 +1,11 @@
 #include "help.h"
-#include <ncurses.h>
+#ifdef _WIN32
+    #include <curses.h>
+#elif defined(__linux__)
+    #include <ncurses.h>
+#else
+    #error "Sistema operativo no soportado"
+#endif
 
 void help() {
   int sizeX = 25, sizeY = 15;
