@@ -7,7 +7,13 @@
 */
 #include "../Paint/color.h"
 #include "../utils.h"
-#include <ncurses.h>
+#ifdef _WIN32
+    #include <curses.h>
+#elif defined(__linux__)
+    #include <ncurses.h>
+#else
+    #error "Sistema operativo no soportado"
+#endif
 #include <stdlib.h>
 #include <string.h>
 /**

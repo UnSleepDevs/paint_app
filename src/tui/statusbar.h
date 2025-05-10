@@ -1,6 +1,12 @@
 #ifndef STATUS_BAR_H
 #define STATUS_BAR_H
-#include <ncurses.h>
+#ifdef _WIN32
+    #include <curses.h>
+#elif defined(__linux__)
+    #include <ncurses.h>
+#else
+    #error "Sistema operativo no soportado"
+#endif
 #include <stdlib.h>
 typedef struct {
     char _text[15];

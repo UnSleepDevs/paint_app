@@ -1,7 +1,13 @@
 #ifndef NCURSES_UTILS
 #define NCURSES_UTILS
 #include "../Paint/color.h"
-#include <ncurses.h>
+#ifdef _WIN32
+    #include <curses.h>
+#elif defined(__linux__)
+    #include <ncurses.h>
+#else
+    #error "Sistema operativo no soportado"
+#endif
 #include <stdlib.h>
 // ==[FUNCTIONS]==
 void ncurses_end();

@@ -1,2 +1,5 @@
 *.o
 paint_app
+bin/Debug/paint_app.exe
+paint_app.depend
+paint_app.layout

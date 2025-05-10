@@ -36,9 +36,11 @@ Cursor *create_cursor(char t) {
 
 void draw_cursor(Cursor *cursor) {
   Coord *coords = cursor->coords;
-  attron(COLOR_PAIR(cursor->color->color));
-  mvaddch(coords->y, coords->x, cursor->show);
-  attroff(COLOR_PAIR(cursor->color->color));
+  if (coords->x >= 0 && coords->x < COLS && coords->y >= 0 && coords->y < LINES) {
+    attron(COLOR_PAIR(cursor->color->color));
+    mvaddch(coords->y, coords->x, cursor->show);
+    attroff(COLOR_PAIR(cursor->color->color));
+  }
 }
 
 void update_cursor(Cursor *cursor, int k) {
